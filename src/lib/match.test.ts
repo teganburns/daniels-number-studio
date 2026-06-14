@@ -38,6 +38,21 @@ describe('speech matching', () => {
     )
   })
 
+  it('requires trailing decimal zeros when they are part of the target', () => {
+    expect(
+      speechMatchesNumber(
+        'forty two thousand one hundred five point three seven zero zero zero',
+        parsed('42,105.37000')
+      ).matched
+    ).toBe(true)
+    expect(
+      speechMatchesNumber(
+        'forty two thousand one hundred five point three seven',
+        parsed('42,105.37000')
+      ).matched
+    ).toBe(false)
+  })
+
   it('rejects a meaningfully different number', () => {
     expect(speechMatchesNumber('one hundred fifty', parsed('105')).matched).toBe(false)
     expect(speechMatchesNumber('forty two thousand nine', parsed('42,105')).matched).toBe(

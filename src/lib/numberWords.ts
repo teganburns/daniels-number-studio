@@ -13,6 +13,7 @@ export type ParsedNumber = {
   decimalDigits: string
   chunks: PronunciationChunk[]
   phrase: string
+  speechText: string
 }
 
 export type ParseNumberResult =
@@ -108,6 +109,7 @@ export function parseNumberInput(input: string): ParseNumberResult {
 
   const chunks = buildChunks(wholeDigits, decimalPart ?? '')
   const phrase = chunks.map((chunk) => chunk.words).join(' ')
+  const speechText = buildSpeechText(chunks)
   const normalized =
     decimalPart !== undefined
       ? `${wholeDigits}.${decimalPart}`
@@ -122,7 +124,8 @@ export function parseNumberInput(input: string): ParseNumberResult {
       wholeDigits,
       decimalDigits: decimalPart ?? '',
       chunks,
-      phrase
+      phrase,
+      speechText
     }
   }
 }
@@ -167,6 +170,18 @@ function buildChunks(wholeDigits: string, decimalDigits: string): PronunciationC
       kind: 'decimal'
     }
   ]
+}
+
+function buildSpeechText(chunks: PronunciationChunk[]): string {
+  return chunks
+    .map((chunk) => {
+      if (chunk.kind !== 'decimal') {
+        return chunk.words
+      }
+
+      return chunk.words.split(' ').join(', ')
+    })
+    .join(', ')
 }
 
 function wholeNumberChunks(wholeDigits: string): PronunciationChunk[] {

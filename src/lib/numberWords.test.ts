@@ -38,6 +38,21 @@ describe('number wording', () => {
     expectPhrase('900,000.010', 'nine hundred thousand point zero one zero')
   })
 
+  it('keeps trailing decimal zeros for display and speech synthesis', () => {
+    const parsed = parseNumberInput('42,105.37000')
+
+    expect(parsed.ok).toBe(true)
+    if (parsed.ok) {
+      expect(parsed.value.display).toBe('42,105.37000')
+      expect(parsed.value.phrase).toBe(
+        'forty-two thousand one hundred five point three seven zero zero zero'
+      )
+      expect(parsed.value.speechText).toBe(
+        'forty-two thousand, one hundred five, point, three, seven, zero, zero, zero'
+      )
+    }
+  })
+
   it('formats and sanitizes typed input', () => {
     expect(sanitizeNumberInput(' 42,105.37 ')).toBe('42105.37')
     expect(formatDisplayNumber('42105', '37')).toBe('42,105.37')

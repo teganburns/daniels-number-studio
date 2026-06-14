@@ -124,7 +124,7 @@ export default function App() {
 
   const handlePlayCurrent = useCallback(() => {
     if (currentParsed) {
-      void speakText(currentParsed.phrase)
+      void speakText(currentParsed.speechText)
     }
   }, [currentParsed, speakText])
 
@@ -166,7 +166,7 @@ export default function App() {
 
   const handlePlayQuiz = useCallback(() => {
     if (quizParsed) {
-      void speakText(quizParsed.phrase)
+      void speakText(quizParsed.speechText)
     }
   }, [quizParsed, speakText])
 
