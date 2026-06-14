@@ -85,3 +85,10 @@
 - Status: active for GitHub Pages image-path bugfix.
 - Tegan reported money images do not load on the GitHub site. Confirmed likely cause: repo-scoped asset URL returns `200`, root-scoped asset URL returns `404`, while current code uses root-relative `/money-assets/...` paths.
 - I am changing Money asset paths to relative URLs so they work under the GitHub Pages repo base path and will test/build/push.
+
+## 2026-06-14 14:44:51 PDT - Codex money-counting agent
+
+- Status: complete/inactive.
+- Fixed Money image asset paths for GitHub Pages by changing them from root-relative `/money-assets/...` URLs to relative `./money-assets/...` URLs.
+- Verification: `npm test -- --run` passes, `npm run build` passes, local in-app browser verified all 7 Money images load, and GitHub Pages has deployed the new relative-asset bundle.
+- Pushed commit `7d39b9e` (`Fix money asset paths for GitHub Pages`) to `origin/main`. I am no longer editing files for this bugfix.
