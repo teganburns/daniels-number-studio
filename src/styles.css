@@ -750,9 +750,651 @@ button:disabled {
   height: 170px;
 }
 
+.clock-card {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #ffffff, var(--wash)),
+    #ffffff;
+  box-shadow: 0 12px 28px rgb(7 19 51 / 0.06);
+}
+
+.clock-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.clock-card-header > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clock-card-header svg {
+  color: var(--teal-dark);
+}
+
+.clock-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.digital-clock-display {
+  display: grid;
+  grid-template-columns: minmax(82px, 1fr) auto minmax(112px, 1fr) minmax(66px, 0.45fr);
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.digital-time-unit {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 122px;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: 8px;
+  color: #ffffff;
+  background:
+    linear-gradient(180deg, #0b2a63, #061847),
+    #061847;
+  box-shadow:
+    inset 0 -12px 22px rgb(0 0 0 / 0.16),
+    0 14px 26px rgb(7 19 51 / 0.16);
+  font-size: 4.3rem;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  touch-action: none;
+}
+
+.digital-time-unit:focus-visible {
+  outline: 4px solid rgb(53 120 229 / 0.34);
+  outline-offset: 4px;
+}
+
+.digital-colon {
+  color: #061847;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.digital-period {
+  display: grid;
+  place-items: center;
+  min-height: 122px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  background: var(--mint);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.time-step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.time-step-button {
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgb(7 19 51 / 0.07);
+}
+
+.period-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.period-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgb(7 19 51 / 0.06);
+  font-weight: 850;
+}
+
+.period-toggle button.is-active {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  border-color: transparent;
+}
+
+.clock-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: var(--teal-dark);
+  background: var(--mint);
+  font-weight: 900;
+}
+
+.sound-button.compact {
+  width: 62px;
+  height: 62px;
+}
+
+.clock-play-stage,
+.time-stage,
+.money-board {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(360px, 1.05fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.clock-shortcut-grid,
+.time-preset-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.clock-shortcut-button,
+.time-preset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgb(7 19 51 / 0.06);
+  font-weight: 850;
+}
+
+.clock-shortcut-button.minute-shortcut {
+  display: grid;
+  gap: 2px;
+  text-align: center;
+}
+
+.clock-shortcut-button span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.time-stage .clock-card {
+  min-height: 100%;
+}
+
+.analog-clock-card {
+  justify-items: center;
+}
+
+.analog-clock {
+  width: min(100%, 390px);
+  aspect-ratio: 1;
+  overflow: visible;
+  touch-action: none;
+}
+
+.analog-face {
+  fill: #ffffff;
+  stroke: var(--line);
+  stroke-width: 3;
+  filter: drop-shadow(0 16px 22px rgb(7 19 51 / 0.11));
+}
+
+.clock-tick {
+  stroke: #6cc7d4;
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.clock-hour-label {
+  fill: #0b2a63;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.clock-hand {
+  stroke-linecap: round;
+  transform-origin: center;
+}
+
+.hour-hand {
+  stroke: #0b2a63;
+  stroke-width: 12;
+}
+
+.minute-hand {
+  stroke: var(--teal-dark);
+  stroke-width: 8;
+}
+
+.clock-hand-hit {
+  stroke: transparent;
+  stroke-linecap: round;
+  stroke-width: 34;
+  cursor: grab;
+  touch-action: none;
+}
+
+.clock-hand-hit:focus-visible {
+  outline: none;
+  stroke: rgb(53 120 229 / 0.22);
+}
+
+.clock-center-dot {
+  fill: #3578e5;
+  stroke: #ffffff;
+  stroke-width: 4;
+}
+
+.time-challenge-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgb(7 19 51 / 0.06);
+}
+
+.time-target {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.time-target h2 {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 850;
+}
+
+.time-target strong {
+  color: #061847;
+  font-size: 2.15rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.target-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  color: var(--teal-dark);
+  background: var(--mint);
+}
+
+.time-check-area {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.clock-teaching-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.teaching-chip {
+  display: grid;
+  gap: 5px;
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.teaching-chip span,
+.money-total-display span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.teaching-chip strong {
+  color: #061847;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.clock-reference-list {
+  display: grid;
+  gap: 8px;
+}
+
+.clock-reference-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px dashed #d6e1ee;
+}
+
+.clock-reference-list span {
+  color: var(--muted);
+  font-weight: 750;
+}
+
+.clock-rail-current,
+.money-rail-total {
+  color: #061847;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.money-card {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, #ffffff, var(--wash)),
+    #ffffff;
+  box-shadow: 0 12px 28px rgb(7 19 51 / 0.06);
+}
+
+.money-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.money-card-header > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.money-card-header svg {
+  color: var(--teal-dark);
+}
+
+.money-card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.money-palette,
+.money-rail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.money-piece {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr auto auto;
+  gap: 5px;
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  color: #061847;
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgb(7 19 51 / 0.08);
+  font-weight: 900;
+  touch-action: none;
+  user-select: none;
+}
+
+.money-piece.is-bill {
+  min-height: 122px;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 12% 20%, rgb(69 184 117 / 0.18), transparent 24%),
+    linear-gradient(135deg, #e8f8ef, #ffffff 44%, #dff4e8);
+  border-color: #b9dfc8;
+}
+
+.money-piece.is-coin {
+  width: 110px;
+  min-height: 124px;
+  justify-self: center;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 35% 28%, rgb(255 255 255 / 0.78) 0 12%, transparent 13%),
+    linear-gradient(180deg, #ffffff, #fff9de);
+  border-color: #dfc46b;
+}
+
+.money-piece.is-placed {
+  transform: rotate(var(--money-tilt, -2deg));
+}
+
+.money-piece-image {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.money-piece-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.money-piece.is-bill .money-piece-image {
+  aspect-ratio: 2.35;
+  border-radius: 6px;
+  background: #f2fbf5;
+  box-shadow:
+    inset 0 0 0 1px rgb(7 19 51 / 0.08),
+    0 4px 10px rgb(7 19 51 / 0.08);
+}
+
+.money-piece.is-bill .money-piece-image img {
+  object-fit: cover;
+}
+
+.money-piece.is-coin .money-piece-image {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #f9f1c6;
+  box-shadow:
+    inset 0 0 0 3px rgb(255 255 255 / 0.8),
+    0 4px 12px rgb(7 19 51 / 0.12);
+}
+
+.money-piece-value {
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.money-piece-label {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.money-total-counter {
+  min-width: 110px;
+}
+
+.money-total-display {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.money-total-display strong {
+  color: var(--teal-dark);
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.money-tray {
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-height: 258px;
+  padding: 18px;
+  border: 2px dashed #b8d9e9;
+  border-radius: 8px;
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    #f8fcff;
+  background-size: 34px 34px;
+}
+
+.money-tray.is-empty {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.money-tray.is-drag-over {
+  border-color: var(--teal);
+  background:
+    linear-gradient(rgb(33 174 182 / 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(33 174 182 / 0.16) 1px, transparent 1px),
+    #f3fdff;
+}
+
+.money-tray .money-piece.is-bill {
+  width: 148px;
+  min-height: 92px;
+  padding: 6px;
+}
+
+.money-tray .money-piece.is-coin {
+  width: 82px;
+  min-height: 96px;
+  padding: 6px;
+}
+
+.money-tray .money-piece-value {
+  font-size: 1rem;
+}
+
+.money-tray .money-piece-label {
+  font-size: 0.68rem;
+}
+
+.money-tray .money-piece.is-coin .money-piece-image {
+  width: 54px;
+  height: 54px;
+}
+
+.money-drag-preview {
+  position: fixed;
+  z-index: 20;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 18px 22px rgb(7 19 51 / 0.2));
+}
+
+.money-drag-preview.is-bill {
+  width: 148px;
+  min-height: 92px;
+}
+
+.money-drag-preview.is-coin {
+  width: 82px;
+  min-height: 96px;
+}
+
+.money-drag-preview.is-remove-ready {
+  opacity: 0.72;
+  filter:
+    grayscale(0.35)
+    drop-shadow(0 18px 22px rgb(255 92 97 / 0.22));
+}
+
+.money-drag-preview .money-piece-label {
+  display: none;
+}
+
+.money-rail-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.money-rail-grid .money-piece.is-bill,
+.money-rail-grid .money-piece.is-coin {
+  width: 100%;
+  min-height: 78px;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.money-rail-grid .money-piece.is-coin {
+  min-height: 86px;
+}
+
+.money-rail-grid .money-piece.is-coin .money-piece-image {
+  width: 44px;
+  height: 44px;
+}
+
+.money-rail-grid .money-piece-value {
+  font-size: 1rem;
+}
+
+.money-rail-grid .money-piece-label {
+  font-size: 0.66rem;
+}
+
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -1077,12 +1719,15 @@ button:disabled {
   }
 
   .challenge-board,
-  .speak-stage {
+  .speak-stage,
+  .clock-play-stage,
+  .time-stage,
+  .money-board {
     grid-template-columns: 1fr;
   }
 
   .dashboard-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .progress-row {
@@ -1193,8 +1838,27 @@ button:disabled {
 
   .challenge-card,
   .settings-card,
+  .money-card,
   .progress-table {
     padding: 16px;
+  }
+
+  .clock-shortcut-grid,
+  .time-preset-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .time-challenge-panel {
+    display: grid;
+    justify-items: stretch;
+  }
+
+  .time-check-area {
+    justify-items: stretch;
+  }
+
+  .money-tray {
+    min-height: 220px;
   }
 
   .display-number.compact {
@@ -1205,6 +1869,19 @@ button:disabled {
   .mic-button.large {
     width: 132px;
     height: 132px;
+  }
+
+  .digital-time-unit,
+  .digital-period {
+    min-height: 96px;
+  }
+
+  .digital-time-unit {
+    font-size: 3.25rem;
+  }
+
+  .digital-colon {
+    font-size: 3.2rem;
   }
 
   .keypad {
@@ -1242,6 +1919,47 @@ button:disabled {
 
   .progress-row {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard-grid,
+  .time-step-grid,
+  .clock-shortcut-grid,
+  .time-preset-grid,
+  .clock-teaching-grid,
+  .money-palette,
+  .money-rail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .money-total-display {
+    display: grid;
+  }
+
+  .money-total-display strong {
+    font-size: 2.35rem;
+  }
+
+  .digital-clock-display {
+    grid-template-columns: minmax(62px, 1fr) auto minmax(72px, 1fr) minmax(46px, 0.5fr);
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .digital-time-unit,
+  .digital-period {
+    min-height: 78px;
+  }
+
+  .digital-time-unit {
+    font-size: 2.5rem;
+  }
+
+  .digital-period {
+    font-size: 1.32rem;
+  }
+
+  .digital-colon {
+    font-size: 2.5rem;
   }
 
   .progress-row .level-badge {

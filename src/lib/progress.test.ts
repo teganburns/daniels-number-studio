@@ -3,6 +3,7 @@ import {
   DEFAULT_PROGRESS,
   loadProgress,
   recordListenWin,
+  recordTimeWin,
   saveProgress,
   updateSpeechSettings
 } from './progress'
@@ -20,11 +21,20 @@ describe('progress persistence', () => {
     expect(loadProgress(storage)).toMatchObject({
       completed: { decimals: 1 },
       listenWins: 1,
+      timeWins: 0,
       settings: {
         voiceURI: 'voice-a',
         rate: 0.78,
         pitch: 1.12
       }
+    })
+  })
+
+  it('records time wins without attaching them to a number level', () => {
+    expect(recordTimeWin(DEFAULT_PROGRESS)).toMatchObject({
+      completed: {},
+      timeWins: 1,
+      streak: 1
     })
   })
 })

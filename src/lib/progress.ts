@@ -8,6 +8,7 @@ export type ProgressState = {
   completed: Record<string, number>
   listenWins: number
   speakWins: number
+  timeWins: number
   streak: number
   lastPracticedISO?: string
   settings: SpeechSettings
@@ -18,6 +19,7 @@ export const DEFAULT_PROGRESS: ProgressState = {
   completed: {},
   listenWins: 0,
   speakWins: 0,
+  timeWins: 0,
   streak: 0,
   settings: DEFAULT_SPEECH_SETTINGS
 }
@@ -87,6 +89,18 @@ export function recordSpeakWin(progress: ProgressState): ProgressState {
   return {
     ...progress,
     speakWins: progress.speakWins + 1,
+    streak: continuedStreak ? progress.streak : progress.streak + 1,
+    lastPracticedISO: today
+  }
+}
+
+export function recordTimeWin(progress: ProgressState): ProgressState {
+  const today = new Date().toISOString().slice(0, 10)
+  const continuedStreak = progress.lastPracticedISO === today
+
+  return {
+    ...progress,
+    timeWins: progress.timeWins + 1,
     streak: continuedStreak ? progress.streak : progress.streak + 1,
     lastPracticedISO: today
   }
