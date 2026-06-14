@@ -150,10 +150,10 @@ describe('App navigation', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Money' }))
     expect(
-      container.querySelector('img[src="/money-assets/us-one-dollar-front.jpg"]')
+      container.querySelector('img[src="./money-assets/us-one-dollar-front.jpg"]')
     ).toBeInTheDocument()
     expect(
-      container.querySelector('img[src="/money-assets/us-quarter-obverse.png"]')
+      container.querySelector('img[src="./money-assets/us-quarter-obverse.png"]')
     ).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', { name: 'Add One dollar' }))

@@ -29,7 +29,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'One dollar',
     display: '$1',
     valueCents: 100,
-    assetSrc: '/money-assets/us-one-dollar-front.jpg'
+    assetSrc: './money-assets/us-one-dollar-front.jpg'
   },
   {
     id: 'bill-5',
@@ -37,7 +37,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'Five dollars',
     display: '$5',
     valueCents: 500,
-    assetSrc: '/money-assets/us-five-dollar-front.jpg'
+    assetSrc: './money-assets/us-five-dollar-front.jpg'
   },
   {
     id: 'bill-10',
@@ -45,7 +45,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'Ten dollars',
     display: '$10',
     valueCents: 1000,
-    assetSrc: '/money-assets/us-ten-dollar-front.jpg'
+    assetSrc: './money-assets/us-ten-dollar-front.jpg'
   },
   {
     id: 'bill-20',
@@ -53,7 +53,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'Twenty dollars',
     display: '$20',
     valueCents: 2000,
-    assetSrc: '/money-assets/us-twenty-dollar-front.jpg'
+    assetSrc: './money-assets/us-twenty-dollar-front.jpg'
   },
   {
     id: 'coin-nickel',
@@ -61,7 +61,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'Nickel',
     display: '5¢',
     valueCents: 5,
-    assetSrc: '/money-assets/us-nickel-obverse.jpg'
+    assetSrc: './money-assets/us-nickel-obverse.jpg'
   },
   {
     id: 'coin-dime',
@@ -69,7 +69,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'Dime',
     display: '10¢',
     valueCents: 10,
-    assetSrc: '/money-assets/us-dime-obverse.png'
+    assetSrc: './money-assets/us-dime-obverse.png'
   },
   {
     id: 'coin-quarter',
@@ -77,7 +77,7 @@ export const MONEY_DENOMINATIONS: MoneyDenomination[] = [
     label: 'Quarter',
     display: '25¢',
     valueCents: 25,
-    assetSrc: '/money-assets/us-quarter-obverse.png'
+    assetSrc: './money-assets/us-quarter-obverse.png'
   }
 ]
 

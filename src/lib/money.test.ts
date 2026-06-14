@@ -41,10 +41,10 @@ describe('money helpers', () => {
   it('provides local image asset paths for each denomination', () => {
     const assetPaths = MONEY_DENOMINATIONS.map((denomination) => denomination.assetSrc)
 
-    expect(assetPaths.every((assetPath) => assetPath.startsWith('/money-assets/'))).toBe(true)
+    expect(assetPaths.every((assetPath) => assetPath.startsWith('./money-assets/'))).toBe(true)
     expect(new Set(assetPaths).size).toBe(MONEY_DENOMINATIONS.length)
     expect(getMoneyDenomination('coin-quarter').assetSrc).toBe(
-      '/money-assets/us-quarter-obverse.png'
+      './money-assets/us-quarter-obverse.png'
     )
   })
 

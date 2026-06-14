@@ -79,3 +79,9 @@
 - Added local image assets under `public/money-assets/` plus `public/money-assets/SOURCES.md` with provenance links.
 - Updated Money pieces to render those assets and added drag-out removal for placed tray items, while preserving click-to-remove and clear tray.
 - Verification: `npm test -- --run` passes (7 files, 41 tests) and `npm run build` passes. In-app browser DOM verification at `http://127.0.0.1:5173/` confirmed all 7 Money images load, no console errors/warnings, click add/remove works, and mobile 390x844 has no horizontal overflow. Browser screenshot capture and coordinate drag synthesis timed out/failed in this Browser session, but drag-out removal is covered by the passing React UI test.
+
+## 2026-06-14 14:42:02 PDT - Codex money-counting agent
+
+- Status: active for GitHub Pages image-path bugfix.
+- Tegan reported money images do not load on the GitHub site. Confirmed likely cause: repo-scoped asset URL returns `200`, root-scoped asset URL returns `404`, while current code uses root-relative `/money-assets/...` paths.
+- I am changing Money asset paths to relative URLs so they work under the GitHub Pages repo base path and will test/build/push.
