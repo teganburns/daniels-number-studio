@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Smiling student mascot">
+  <rect width="180" height="180" rx="36" fill="#e9fbf8"/>
+  <circle cx="90" cy="74" r="42" fill="#ffd8b8"/>
+  <path d="M48 75c2-34 26-54 56-48 24 5 34 26 31 47-10-17-30-25-54-18-14 4-24 10-33 19z" fill="#67351d"/>
+  <circle cx="74" cy="78" r="5" fill="#071333"/>
+  <circle cx="106" cy="78" r="5" fill="#071333"/>
+  <path d="M74 102c10 10 23 10 33 0" fill="none" stroke="#071333" stroke-width="6" stroke-linecap="round"/>
+  <path d="M46 153c3-28 22-44 44-44s41 16 44 44z" fill="#00a6a6"/>
+  <path d="M62 121l28 25 28-25" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="118" y="27" width="42" height="31" rx="10" fill="#00a6a6"/>
+  <text x="139" y="49" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="#ffffff">123</text>
+  <path d="M29 49l5 10 10 5-10 5-5 10-5-10-10-5 10-5z" fill="#ffc400"/>
+  <path d="M146 83l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="#48cfc8"/>
+</svg>
